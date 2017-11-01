@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset='UTF-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <?php wp_head(); ?>
+    </head>
+    <body>
+        {% block head %}
+        {% endblock %}
+        <div id='content'>
+            {% block body %}
+            {% endblock %}
+        </div>
+        <footer>
+            {% block footer %}
+            {% endblock %}
+        </footer>
+    </body>
+</html>

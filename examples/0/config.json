@@ -1,4 +1,10 @@
 {
+    "pages": [
+        {
+            "title": "home",
+            "template": "home.html"
+        }
+    ],
     "post_types": [
         {
             "name": "book",
