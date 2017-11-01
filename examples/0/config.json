@@ -1,0 +1,29 @@
+{
+    "post_types": [
+        {
+            "name": "book",
+            "name_multiple": "books",
+            "public": true,
+            "has_archive": true
+        },
+        {
+            "name": "shelf",
+            "name_multiple": "shelfs",
+            "public": true,
+            "has_archive": true
+        }
+    ],
+    "metaboxes": [
+        {
+            "title": "Author",
+            "where": "book",
+            "fields": [
+                {
+                    "key": "name",
+                    "placeholder": "John Doe",
+                    "display_name": "Name"
+                }
+            ]
+        }
+    ]
+}
