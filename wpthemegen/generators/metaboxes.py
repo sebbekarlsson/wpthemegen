@@ -26,8 +26,19 @@ php_code = """
             wp_nonce_field( '_{{ field.key }}_nonce', '_{{ field.key }}_nonce' );
             
             $value = get_post_meta($post->ID, '_{{ field.key }}', true);
-
-            echo '<textarea style="width:100%" id="_{{ field.key }}" name="_{{ field.key }}">' . esc_attr( $value ) . '</textarea>';
+            
+            ?>
+            <label for='_{{ field.key }}'>
+                <p>{{ field.display_name }}</p>
+                {% if field.type == 'textarea' or not field.type %}
+                    <textarea style="width:100%" id="_{{ field.key }}" name="_{{ field.key }}"><?php echo esc_attr($value); ?></textarea>
+                {% elif field.type == 'text' %}
+                    <input type="text" id="_{{ field.key }}" name="_{{ field.key }}" value="<?php echo esc_attr($value); ?>"/>
+                {% elif field.type == 'checkbox' %}
+                    <input type="checkbox" id="_{{ field.key }}" name="_{{ field.key }}" <?php if (!empty($value)) { ?> checked <?php } ?>/>
+                {% endif %}
+            </label>
+            <?php
 
         {% endfor %}
     }
@@ -42,6 +53,8 @@ php_code = """
                         if (isset($_POST['_{{ field.key }}'])) {
                             $my_data = sanitize_text_field( $_POST['_{{ field.key }}'] );
                             update_post_meta($post_id, '_{{ field.key }}', $my_data);
+                        } else {
+                            update_post_meta($post_id, '_{{ field.key }}', null);
                         }
                     }
                 }
