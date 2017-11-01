@@ -32,7 +32,7 @@
 
 > This will generate a wordpress theme inside a directory with the same name
 > as the `title` field in your `config.json`.  
-> If your config has no `title` field, the directory will pe named `WordpressTheme`
+> If your config has no `title` field, the directory will be named `WordpressTheme`
 
 ### Some theme examples using wpthemegen
 * [Example 0](examples/0)
