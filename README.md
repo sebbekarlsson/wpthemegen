@@ -11,6 +11,9 @@
 
 > ... and __a lot__ less _PHP_.
 
+# __NOTE__
+> __UNDER DEVELOPMENT, DO NOT USE IN PRODUCTION__
+
 # How to install
 
     python setup.py install
