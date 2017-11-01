@@ -1,7 +1,7 @@
 # wpthemegen
 > Generate a wordpress theme fron a JSON config.
 
-> __Because nobody wants to write PHP__
+> _Because nobody wants to write PHP_
 
 # How to install
 
