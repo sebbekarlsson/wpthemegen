@@ -1,7 +1,6 @@
 # wpthemegen
-> Generate a wordpress theme fron a JSON config.
-
-> _Because nobody wants to write PHP_
+> Generate a wordpress theme fron a JSON config.  
+> _Because nobody wants to write PHP._
 
 # How to install
 
@@ -23,8 +22,7 @@
     wpthemegen --input config.json --output .
 
 > This will generate a wordpress theme inside a directory with the same name
-> as the `title` field in your `config.json`
-
+> as the `title` field in your `config.json`.  
 > If your config has no `title` field, the directory will pe named `WordpressTheme`
 
 ### Some theme examples using wpthemegen
