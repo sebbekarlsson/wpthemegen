@@ -2,6 +2,15 @@
 > Generate a wordpress theme fron a JSON config.  
 > _Because nobody wants to write PHP._
 
+> Using this will let you write wordpress themes using:  
+* Jinja Templating
+* HTML
+* JSON config
+* Any Javascript technology
+* Any CSS technology
+
+> ... and __a lot__ less _PHP_.
+
 # How to install
 
     python setup.py install
