@@ -1,6 +1,8 @@
 # wpthemegen
 > Generate a wordpress theme fron a JSON config.
 
+> __Because nobody wants to write PHP__
+
 # How to install
 
     python setup.py install
