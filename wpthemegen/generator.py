@@ -6,7 +6,7 @@ import os
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--gen-templates", help="Generate templates")
+parser.add_argument("--init", help="Generate templates")
 parser.add_argument("--input", help="Input JSON config")
 parser.add_argument("--output", help="Output directory")
 
@@ -46,7 +46,7 @@ def generate():
     if args.output:
         output_dir = args.output
     
-    if args.gen_templates:
+    if args.init:
         templates_dir = os.path.join(output_dir, 'templates')
 
         if os.path.isdir(templates_dir):
@@ -66,6 +66,9 @@ def generate():
         json_content = json.loads(configfile.read())
     configfile.close()
 
-    theme = Theme(json_content)
-
-    print(theme.get_php())
+    theme = Theme(
+        json_content,
+        templates_dir=input_file.replace('config.json', './templates')
+    )
+    
+    theme.generate(input_dir=input_file.replace('config.json', ''), output_dir=output_dir)

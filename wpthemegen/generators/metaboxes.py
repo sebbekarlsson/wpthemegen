@@ -19,7 +19,7 @@ php_code = """
     }
     add_action('add_meta_boxes', 'add_meta_box_{{ box.title }}');
 
-    function add_meta_box_{{ box.title }}_render() {
+    function add_meta_box_{{ box.title }}_render($post) {
         // Add a nonce field so we can check for it later.
 
         {% for field in box.fields %}
