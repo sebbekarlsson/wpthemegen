@@ -28,6 +28,7 @@ site_layout_html = """
             {% endblock %}
         </div>
         <footer>
+            <?php wp_footer(); ?>
             {% block footer %}
             {% endblock %}
         </footer>
