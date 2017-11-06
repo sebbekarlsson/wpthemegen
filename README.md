@@ -1,5 +1,5 @@
 # wpthemegen
-> Generate a wordpress theme fron a JSON config.  
+> Generate a wordpress theme from a JSON config.  
 > _Because nobody wants to write PHP._
 
 > Using this will let you write wordpress themes using:  
