@@ -11,6 +11,10 @@
 
 > ... and __a lot__ less _PHP_.
 
+<div style='text-align: center;' align='center'>
+    <img width='400px' src='wpthemegen.jpg'/>
+</div>
+
 # __NOTE__
 > __UNDER DEVELOPMENT, DO NOT USE IN PRODUCTION__
 
