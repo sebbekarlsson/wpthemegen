@@ -3,6 +3,7 @@ from wpthemegen.generators.metaboxes import MetaboxGenerator
 from wpthemegen.generators.posttypes import PosttypeGenerator
 from wpthemegen.generators.settingspages import SettingsPageGenerator
 from wpthemegen.generators.pages import PageGenerator
+from wpthemegen.composer import compose
 from jinja2 import Template
 import os
 import shutil
@@ -13,6 +14,11 @@ php_functions_code = """
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+/* ===================== COMPOSER =============================== */
+if (file_exists('vendor/autoload.php')) {
+    require_once 'vendor/autoload.php';
+}
+/* ============================================================== */
 
 /* ===================== STYLES AND SCRIPTS ===================== */
 function enqueue_the_styles() {
@@ -38,6 +44,7 @@ class Theme(Generator):
 
     def __init__(self, config, templates_dir='./templates'):
         Generator.__init__(self, config)
+        self.config = config
         self.page_generators = []
         self.title = 'WordpressTheme'
 
@@ -102,3 +109,7 @@ class Theme(Generator):
             with open(filename, 'w+') as _file:
                 _file.write(page.get_php())
             _file.close()
+
+        # == composer == #
+        if 'composer' in self.config:
+            compose(self.config['composer'], output_dir)

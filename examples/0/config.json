@@ -1,4 +1,12 @@
 {
+    "composer": {
+        "require": {
+            "emojione/emojione": "3.1.2"
+        }
+    },
+    "plugins": [
+        "https://downloads.wordpress.org/plugin/dark-mode.1.2.zip"
+    ],
     "pages": [
         {
             "title": "home",
