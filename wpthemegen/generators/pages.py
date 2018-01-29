@@ -1,6 +1,5 @@
 from wpthemegen.generators.generator import Generator
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-import os
 
 
 class PageGenerator(Generator):
@@ -21,7 +20,7 @@ class PageGenerator(Generator):
         if 'template' in config:
             self.template = self.env.get_template(config['template'])
             self.php_code = """
-            
+
             <?php
             /**
              * Template Name: {title}

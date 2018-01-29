@@ -4,9 +4,7 @@ from jinja2 import Template
 
 php_code = """
 {% for box in metaboxes %}
-    
     function add_meta_box_{{ box.title }}() {
-        
         add_meta_box(
             '{{ box.title.lower() }}',      // Unique ID
             esc_html__( '{{ box.title }}', '{{ box.title.lower() }}' ),    // Title
@@ -15,7 +13,6 @@ php_code = """
             '{{ box.context if box.context else 'side' }}',         // Context
             '{{ box.priority if box.priority else 'default' }}'         // Priority
         );
-        
     }
     add_action('add_meta_boxes', 'add_meta_box_{{ box.title }}');
 

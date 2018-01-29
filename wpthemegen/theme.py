@@ -58,11 +58,15 @@ class Theme(Generator):
             self.posttypeGenerator = PosttypeGenerator(config['post_types'])
 
         if 'settings' in config:
-            self.settingsPageGenerator = SettingsPageGenerator(config['settings'])
+            self.settingsPageGenerator = SettingsPageGenerator(
+                config['settings'])
 
         if 'pages' in config:
             for page_config in config['pages']:
-                self.page_generators.append(PageGenerator(page_config, templates_dir=templates_dir))
+                self.page_generators.append(PageGenerator(
+                    page_config,
+                    templates_dir=templates_dir
+                ))
 
         self.php_code = php_functions_code_template.render(
             post_types_php=self.posttypeGenerator.get_php(),
@@ -103,7 +107,8 @@ class Theme(Generator):
 
         # == generate page templates == #
         for page in self.page_generators:
-            filename = 'page.php' if not page.title else 'page-{}.php'.format(page.title)
+            filename = 'page.php' if not page.title\
+                else 'page-{}.php'.format(page.title)
             filename = os.path.join(output_dir, filename)
 
             with open(filename, 'w+') as _file:

@@ -4,9 +4,9 @@ import subprocess
 
 
 def compose(config, composer_dir='.'):
-    with open(os.path.join(composer_dir, 'composer.json'), 'w+') as composerfile:
-        composerfile.write(json.dumps(config))
-    composerfile.close()
+    with open(os.path.join(composer_dir, 'composer.json'), 'w+') as _file:
+        _file.write(json.dumps(config))
+    _file.close()
 
     return subprocess.Popen(
         'composer install',

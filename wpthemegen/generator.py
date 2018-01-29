@@ -1,7 +1,6 @@
 from wpthemegen.theme import Theme
 import json
 import argparse
-import shutil
 import os
 
 parser = argparse.ArgumentParser()
@@ -16,7 +15,7 @@ site_layout_html = """
 <!DOCTYPE html>
 <html>
     <head>
-	<meta charset='UTF-8'/>
+        <meta charset='UTF-8'/>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <?php wp_head(); ?>
     </head>
@@ -45,15 +44,15 @@ def generate():
         input_file = args.input
 
     if args.output:
-        output_dir = args.output
-    
+        output_dir = args.outpu
+
     if args.init:
         templates_dir = os.path.join(output_dir, 'templates')
 
         if os.path.isdir(templates_dir):
             print('templates directory already exists!')
             return False
-        
+
         print('Generating base templates...')
         os.mkdir(templates_dir)
         with open('{}/layout.html'.format(templates_dir), 'w+') as layoutfile:
@@ -71,5 +70,8 @@ def generate():
         json_content,
         templates_dir=input_file.replace('config.json', './templates')
     )
-    
-    theme.generate(input_dir=input_file.replace('config.json', ''), output_dir=output_dir)
+
+    theme.generate(
+        input_dir=input_file.replace('config.json', ''),
+        output_dir=output_dir
+    )
